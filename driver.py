@@ -24,7 +24,7 @@ def driver():
     print("5 - exit")
     
     filename = "Comments"
-    df = pd.DataFrame(columns=['UserName','Comment','TimeStamp','Replies','Keywords'])
+    df = pd.DataFrame(columns=['UserName','Comment','TimeStamp','Keywords'])
     if not(os.path.exists(f"{filename}.csv")):
         df.to_csv('Comments.csv',index='False')
     
