@@ -59,19 +59,28 @@ def comment_searcher():
         qkey = input("Enter Keyword to be searched: ")
         flag=0
         for index in data.index:
-            if qkey in data['Keywords'][index]:
+            keywordsextracted = []
+            
+            kx = data['Keywords'][index]
+            kx1 = kx.replace("[","")
+            kx1 = kx1.replace("]","")
+            kx1 = kx1.replace("'","")
+    
+            keywordsextracted = kx1.split(',')
+                       
+            if qkey in keywordsextracted:
                 print(f"{index}. {data['UserName'][index]}: {data['Comment'][index]} - ({data['TimeStamp'][index]}) \n")
                 flag=1
         if(flag==0):
             print("Not Found")
         else:
-            qchoice = input("Do you want to reply to any of these comments? (Yes/No)")
+            qchoice = input("Do you want to reply to any of these comments? (Yes/No): ")
             if( qchoice == "Yes"):
-                qindex = input("Enter the index of the comment you want to reply to")
+                qindex = input("Enter the index of the comment you want to reply to: ")
                 comment_replier( qindex )
             
                 
-    else:
+    elif(choice == "4"):
         qtime = input(str("Enter TimeStamp to be searched in the format YYYY-MM-DD HH:MM:SS :: "))
         lo = 0
         hi = data.shape[0]-1
