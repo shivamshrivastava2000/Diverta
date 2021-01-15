@@ -39,7 +39,6 @@ def comment_adder():
     row = { "UserName" : username,
             "Comment":comment,
            "TimeStamp":t,
-           "Replies" : [],
            "Keywords" : clean(comment)
            }
     data = data.append(row, ignore_index=True)
